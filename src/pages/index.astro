@@ -1,0 +1,15 @@
+---
+import Card from "../components/Card.astro";
+import Layout from "../layouts/Layout.astro";
+import { getAllCoffees } from "../services/coffe.service";
+
+let coffees = await getAllCoffees();
+---
+
+<Layout title="Coffee list">
+  <div
+    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 place-items-center gap-12"
+  >
+    {coffees.map((coffee) => <Card coffee={coffee} />)}
+  </div>
+</Layout>

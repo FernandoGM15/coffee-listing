@@ -1,0 +1,38 @@
+---
+import type { Coffee } from "../interfaces/coffee";
+import Badge from "./Badge.astro";
+import StarIcon from "./StarIcon.astro";
+import Raking from "./Raking.astro";
+interface Props {
+  coffee: Coffee;
+}
+
+const { coffee } = Astro.props;
+const { name, image, price, available, popular, rating, votes } = coffee;
+---
+
+<div class="flex flex-col gap-2 w-full justify-center">
+  <div class="relative">
+    {
+      popular && (
+        <div class="absolute z-10 top-2 left-2">
+          <Badge color="accent">Popular</Badge>
+        </div>
+      )
+    }
+    <img class="w-full h-52 rounded-md" src={image} alt={`${name} Image`} />
+  </div>
+  <div>
+    <div class="flex justify-between items-center my-2">
+      <h4 class="font-bold">{name}</h4>
+      <Badge color="primary">{price}</Badge>
+    </div>
+    <div class="flex justify-between items-center">
+      <div class="flex gap-x-2">
+        <StarIcon isFilled={!!rating} />
+        <Raking rating={rating} votes={votes} />
+      </div>
+      <span class="text-[#ED735D]">{!available && "Sold out"}</span>
+    </div>
+  </div>
+</div>

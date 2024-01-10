@@ -1,0 +1,12 @@
+---
+interface Props {
+  isFilled?: boolean;
+}
+const { isFilled } = Astro.props;
+---
+
+<img
+  class="w-6 h-6"
+  src={isFilled ? "/images/Star_fill.svg" : "/images/Star.svg"}
+  alt="Rating icon"
+/>

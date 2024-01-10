@@ -1,0 +1,16 @@
+---
+import type { Coffee } from "../interfaces/coffee";
+
+type Props = Pick<Coffee, "rating" | "votes">;
+const { rating, votes } = Astro.props;
+---
+{
+  rating ? (
+    <div class="flex gap-x-1">
+      {rating}
+      <span class="text-[#6F757C]">({votes} votes)</span>
+    </div>
+  ) : (
+    <span>No ratings</span>
+  )
+}

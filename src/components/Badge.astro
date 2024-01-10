@@ -1,0 +1,17 @@
+---
+interface Props {
+  color: "primary" | "accent";
+}
+
+const { color } = Astro.props;
+---
+
+<span
+  class:list={[
+    "rounded-full px-2.5 text-sm font-semibold ",
+    { "bg-[#BEE3CC] text-black": color === "primary" },
+    { "bg-[#F6C768] text-white": color === "accent" },
+  ]}
+>
+  <slot /></span
+>

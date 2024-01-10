@@ -1,0 +1,29 @@
+---
+import Button from "./Button.astro";
+
+const OPTIONS = [
+  {
+    link: "/",
+    text: "All Products",
+  },
+  {
+    link: "/available",
+    text: "Available Now",
+  },
+];
+---
+
+<header class="relative overflow-hidden w-full lg:w-[530px] mx-auto">
+  <div class="relative flex flex-col justify-center items-center z-20">
+    <h1 class="text-3xl font-medium">Our Collection</h1>
+    <p class="text-lg text-center text-[#6F757C] leading-6">
+      Introducing our Coffee Collection, a selection of unique coffees from
+      different roast types and origins, expertly roasted in small batches and
+      shipped fresh weekly.
+    </p>
+    <div class="flex justify-center gap-4 mt-4">
+      {OPTIONS.map(({ text, link }) => <Button link={link}>{text}</Button>)}
+    </div>
+  </div>
+  
+</header>
